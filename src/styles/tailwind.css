@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #f0f4f8;
+    --foreground: #0f1c2e;
+    --primary: #1e3a5f;
+    --primary-foreground: #ffffff;
+    --secondary: #c1440e;
+    --secondary-foreground: #ffffff;
+    --accent: #f5e6d3;
+    --accent-foreground: #1e3a5f;
+    --muted: #e8eef5;
+    --muted-foreground: #6b7a8d;
+    --card: #ffffff;
+    --card-foreground: #0f1c2e;
+    --border: #d1dce8;
+    --input: #e8eef5;
+    --ring: #1e3a5f;
+    --radius: 12px;
+    --font-sans: var(--font-plus-jakarta-sans), sans-serif;
+    --success: #0f7b4e;
+    --warning: #b45309;
+    --danger: #c1440e;
+  }
+
+  * {
+    box-sizing: border-box;
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bottom-nav-safe {
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card-shadow {
+    box-shadow: 0 1px 3px rgba(30, 58, 95, 0.08), 0 4px 12px rgba(30, 58, 95, 0.06);
+  }
+
+  .card-shadow-md {
+    box-shadow: 0 2px 8px rgba(30, 58, 95, 0.10), 0 8px 24px rgba(30, 58, 95, 0.08);
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d5491 100%);
+  }
+
+  .gradient-secondary {
+    background: linear-gradient(135deg, #c1440e 0%, #e05a20 100%);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, #f5e6d3 0%, #fdf3eb 100%);
+  }
+
+  .boarding-pass-dashes {
+    border-top: 2px dashed var(--border);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.25s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-600 transition-all duration-150 active:scale-95;
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  .btn-primary:hover {
+    background: #2d5491;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-600 transition-all duration-150 active:scale-95;
+    background: var(--secondary);
+    color: var(--secondary-foreground);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-500 transition-all duration-150 active:scale-95;
+    color: var(--muted-foreground);
+    background: transparent;
+  }
+
+  .btn-ghost:hover {
+    background: var(--muted);
+    color: var(--foreground);
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2.5 rounded-xl text-sm transition-all duration-150 outline-none;
+    background: var(--input);
+    border: 1.5px solid var(--border);
+    color: var(--foreground);
+  }
+
+  .input-field:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.12);
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-600;
+  }
+
+  .badge-blue {
+    background: rgba(30, 58, 95, 0.1);
+    color: var(--primary);
+  }
+
+  .badge-terracotta {
+    background: rgba(193, 68, 14, 0.1);
+    color: var(--secondary);
+  }
+
+  .badge-green {
+    background: rgba(15, 123, 78, 0.1);
+    color: var(--success);
+  }
+
+  .badge-amber {
+    background: rgba(180, 83, 9, 0.1);
+    color: var(--warning);
+  }
+
+  .card {
+    @apply rounded-2xl card-shadow;
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+}
